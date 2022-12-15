@@ -1,0 +1,22 @@
+<div class="main-block products-list-block">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Название</th>
+            <th scope="col">Описание</th>
+            <th scope="col">Себе стоимость</th>
+            <th scope="col">Цена продажи</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let product of products; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ product.title }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.costPrice }}</td>
+            <td>{{ product.salePrice }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

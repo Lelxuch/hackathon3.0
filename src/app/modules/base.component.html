@@ -1,0 +1,6 @@
+<div class="body-outer">
+    <app-sidebar></app-sidebar>
+    <div class="content" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
+        <router-outlet></router-outlet>
+    </div>
+</div>

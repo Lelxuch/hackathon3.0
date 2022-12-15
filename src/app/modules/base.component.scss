@@ -1,0 +1,12 @@
+@import 'src/styles/base/variables';
+
+.body-outer {
+  display: flex;
+  background: $gray-0;
+}
+
+.content {
+  margin: $margin-main-block;
+  width: 100%;
+  border-radius: $border-radius-block;
+}

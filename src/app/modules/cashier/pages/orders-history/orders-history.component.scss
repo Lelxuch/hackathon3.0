@@ -1,0 +1,11 @@
+@import 'src/styles/base/variables';
+
+.orders-history {
+  display: flex;
+}
+
+.done-orders {
+  width: 100%;
+  background: #fff;
+  padding: $padding-main-block;
+}

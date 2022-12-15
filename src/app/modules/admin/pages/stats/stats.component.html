@@ -1,0 +1,38 @@
+<div *ngFor="let statItem of stats; let i = index" class="main-block stats-item">
+    <h4>{{ statItem.shorName }}</h4>
+    <hr>
+    <div class="stat-items">
+        <div class="stat-card">
+            <div class="stat-value">
+                <h2>{{ statItem.averageBill.toFixed(2) }}</h2>
+            </div>
+            <div class="stat-name">
+                Average Bill
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">
+                <h2>{{ statItem.profit.toFixed(2) }}</h2>
+            </div>
+            <div class="stat-name">
+                Profit
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">
+                <h2>{{ statItem.marginality.toFixed(2) }}</h2>
+            </div>
+            <div class="stat-name">
+                Marginality
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">
+                <h2>{{ statItem.salesVolume.toFixed(2) }}</h2>
+            </div>
+            <div class="stat-name">
+                Sales Volume
+            </div>
+        </div>
+    </div>
+</div>

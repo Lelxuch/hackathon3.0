@@ -1,0 +1,62 @@
+@import 'src/styles/base/variables';
+
+.new-order-outer {
+  display: flex;
+  flex: 1 1 0;
+  width: 100%;
+}
+
+.left {
+  width: 65%;
+}
+
+.right {
+  width: 35%;
+  padding-left: $margin-main-block;
+}
+
+/* Shopping cart */
+.shopping-cart-block {
+  margin-bottom: $margin-main-block;
+  padding: $padding-main-block;
+  min-height: 55vh;
+}
+
+/* Order payment */
+.order-payment-block {
+  padding: $padding-main-block;
+}
+
+/* User */
+.user-block {
+  padding: $padding-main-block;
+  height: 100%;
+}
+
+/* QR */
+.qr-img {
+
+  img {
+    width: 100%;
+  }
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.user-details-filler {
+  width: 100%;
+  border-bottom: 2px dotted #000;
+}
+
+.user-detail-name {
+  font-weight: bold;
+}

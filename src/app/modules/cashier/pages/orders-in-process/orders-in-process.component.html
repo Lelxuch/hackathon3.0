@@ -1,0 +1,29 @@
+<div class="main-block in-process-orders">
+    <h3>Заказы в процессе</h3>
+    <hr>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID заказа</th>
+            <th>Список продуктов</th>
+            <th>Дата</th>
+            <th>Общая сумма</th>
+            <th>Цена со скидкой</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let order of orders">
+            <td>{{ order.id }}</td>
+            <td>
+                    <span *ngFor="let product of order.products; let i = index">
+                        {{ product.title }}
+                        <span *ngIf="i != order.products - 1">,</span>
+                    </span>
+            </td>
+            <td>{{ order.date }}</td>
+            <td>{{ order.price }}</td>
+            <td>{{ order.finalPrice }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

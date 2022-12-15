@@ -1,0 +1,133 @@
+<div class="new-order-outer">
+    <div class="left">
+        <div class="shopping-cart-block main-block">
+            <div class="d-flex justify-content-end mb-2 w-100">
+                <button (click)="addProduct()" class="btn btn-primary">Добавить продукт</button>
+            </div>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Название продукта</th>
+                    <th scope="col">Цена</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of cartProducts; let i = index">
+                        <th>{{ i + 1}}</th>
+                        <td>{{ product.title }}</td>
+                        <td>{{ product.salePrice }}</td>
+                        <td class="d-flex justify-content-center"><button (click)="delete(product.id)" class="btn btn-dark">Удалить</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="order-payment-block main-block">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h4 class="text-uppercase">Общая сумма</h4>
+                <span class="font-weight-bold">{{ productData.price }}</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h4 class="text-uppercase">Цена со скидкой</h4>
+                    <div class="d-flex justify-content-end">
+                        <span class="font-weight-bold">{{ productData.price }}</span>
+                    </div>
+                </div>
+                <div>
+                    <h5 *ngIf="userData != null" class="font-weight-bold">{{ userData.discount }}%</h5>
+                    <h5 *ngIf="userData == null" class="font-weight-bold">0%</h5>
+                    <div class="d-flex justify-content-end">
+                        <span class="font-weight-bold">{{ productData.finalPrice }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end mt-5">
+                <button (click)="cancelOrder()" class="btn btn-dark mr-3">
+                    Отменить
+                </button>
+                <button (click)="submitOrder()" class="btn btn-primary">
+                    Оформить
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="user-block main-block">
+
+            <div *ngIf="userData == null">
+
+                <div class="qr-img">
+                    <img src="/assets/images/qr.png">
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <button (click)="activateUser()" class="btn btn-primary">Пользователь</button>
+                </div>
+
+            </div>
+
+            <div *ngIf="userData != null" class="user-info">
+                <div class="mb-5">
+                    <h4>Предпочтения</h4>
+                    <hr>
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Название продукта</th>
+<!--                            <th></th>-->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let preference of userData.preferences; let i = index">
+                            <th>{{ i + 1 }}</th>
+                            <td>{{ preference.title }}</td>
+<!--                            <td class="d-flex justify-content-center"><button (click)="delete(preference.id)" class="btn btn-dark">Удалить</button></td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h4>Данные о пользователе</h4>
+                    <hr>
+                    <div class="user-details">
+                        <div class="user-details-item">
+                            <div class="user-detail-name" style="white-space: nowrap">
+                                Имя пользователя:
+                            </div>
+<!--                            <div class="user-details-filler"></div>-->
+                            <div class="user-detail-value">
+                                {{ userData.username }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-details">
+                        <div class="user-details-item">
+                            <div class="user-detail-name">
+                                Почта:
+                            </div>
+<!--                            <div class="user-details-filler"></div>-->
+                            <div class="user-detail-value">
+                                {{ userData.email }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-details">
+                        <div class="user-details-item">
+                            <div class="user-detail-name">
+                                Номер:
+                            </div>
+<!--                            <div class="user-details-filler"></div>-->
+                            <div class="user-detail-value">
+                                {{ userData.phoneNumber }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

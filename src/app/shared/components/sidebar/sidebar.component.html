@@ -1,0 +1,51 @@
+<div class="sidebar-outer">
+    <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
+        <a href="/" class="navbar-brand d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <h4>Zebra Coffee</h4>
+        </a>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item" *ngIf="permissionService.isSupervisor" >
+                <a [routerLink]="['/supervisor/user/list']" [routerLinkActive]="'active'" class="nav-link">
+                    Список пользователей
+                </a>
+            </li>
+            <li class="nav-item" *ngIf="permissionService.isSupervisor" >
+                <a [routerLink]="['/supervisor/user/create']" [routerLinkActive]="'active'" class="nav-link">
+                    Создать пользователя
+                </a>
+            </li>
+            <li class="nav-item" *ngIf="permissionService.isAdmin" >
+                <a [routerLink]="['/admin/stats']" [routerLinkActive]="'active'" class="nav-link">
+                    Статистика
+                </a>
+            </li>
+            <li class="nav-item" *ngIf="permissionService.isAdmin" >
+                <a [routerLink]="['/admin/product/list']" [routerLinkActive]="'active'" class="nav-link">
+                    Список продуктов
+                </a>
+            </li>
+            <li class="nav-item" *ngIf="permissionService.isAdmin" >
+                <a [routerLink]="['/admin/product/new']" [routerLinkActive]="'active'" class="nav-link">
+                    Создать продукт
+                </a>
+            </li>
+            <li class="nav-item" *ngIf="permissionService.isCashier">
+                <a [routerLink]="['/cashier/order/history']" [routerLinkActive]="'active'" class="nav-link">
+                    История заказов
+                </a>
+            </li>
+            <li class="nav-item" *ngIf="permissionService.isCashier">
+                <a [routerLink]="['/cashier/order/process']" [routerLinkActive]="'active'" class="nav-link">
+                    Заказы в процессе
+                </a>
+            </li>
+            <li class="nav-item" *ngIf="permissionService.isCashier">
+                <a [routerLink]="['/cashier/order/new']" [routerLinkActive]="'active'" class="nav-link">
+                    Новый заказ
+                </a>
+            </li>
+        </ul>
+        <button (click)="logout()" class="btn btn-primary">Выйти</button>
+    </div>
+
+</div>
